@@ -1,0 +1,9 @@
+/* app/font.css */
+@layer {
+
+}
+
+@theme {
+  --font-family-sans: "Sharp Grotesk";
+  --font-family-mono: "Roboto Mono", monospace;
+}
