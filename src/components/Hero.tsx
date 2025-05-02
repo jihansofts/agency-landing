@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <div className="relative w-full min-h-screen sm:h-screen pt-[30px]">
+    <div className="relative w-full min-h-screen lg:h-screen md:h-screen sm:h-screen pt-[30px]">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -60,7 +60,7 @@ export default function Hero() {
                   also provide guidance on managing and scaling it from the
                   ground up through our business consulting services.
                 </p>
-                <div className="mt-10 space-x-4">
+                <div className="mt-10 sm:flex-col  space-x-4">
                   <button className="text-[14px] uppercase bg-gradient-to-t from-[#433199] to-[#8b55ff] text-white font-bold py-4 px-6 rounded-xl mt-4 cursor-pointer hover:bg-[#8b55ffa2] transition-colors">
                     Schedule a meeting
                   </button>
@@ -68,7 +68,7 @@ export default function Hero() {
                     Message on Whatsapp
                   </button>
                 </div>
-                <div className="mt-10 flex sm:flex-row flex-col gap-x-10">
+                <div className="mt-10 flex sm:flex-row flex-col sm:justify-center sm:items-center gap-x-10 sm:w-full sm:gap-y-4">
                   <Image
                     src={"/images/reviewhero1.png"}
                     alt="review"
@@ -80,6 +80,7 @@ export default function Hero() {
                     alt="review"
                     width={300}
                     height={30}
+                    className=" sm:mt-5"
                   />
                 </div>
               </div>
