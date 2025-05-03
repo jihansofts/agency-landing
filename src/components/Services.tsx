@@ -36,8 +36,8 @@ const serviceData: Service[] = [
 export default function Services() {
   return (
     <div className="bg-white">
-      <div className="container mx-auto py-20">
-        <h1 className="text-[56px]  font-medium text-[##171717]">
+      <div className="container mx-auto py-20 px-5">
+        <h1 className="lg:text-[56px] md:text-[40px] text-[32px] text-[#171717] font-medium">
           Services we offer
         </h1>
         <p className="text-[#4A4B54] text-[18px] mt-4 font-mono ">

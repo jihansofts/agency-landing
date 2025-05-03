@@ -1,6 +1,7 @@
 import React from "react";
 import { FaCircleCheck } from "react-icons/fa6";
 import { FaTimes } from "react-icons/fa";
+import CardMenu from "./CardMenu";
 
 export default function Package() {
   const features = [
@@ -91,7 +92,7 @@ export default function Package() {
   ];
 
   return (
-    <div className="bg-bg-secondary py-20 px-4">
+    <div className="bg-bg-secondary py-20 px-5">
       <div className="container mx-auto bg-[#17102F] rounded-t-2xl overflow-hidden">
         {/* Package Header Row */}
         <div className="grid grid-cols-12 border-b border-[#3D3353]">
@@ -180,7 +181,6 @@ export default function Package() {
             </div>
           </div>
         </div>
-
         {/* Features List */}
         {features.map((feature, index) => (
           <div
@@ -265,6 +265,7 @@ export default function Package() {
           </div>
         </div>
       </div>
+      <CardMenu />
     </div>
   );
 }

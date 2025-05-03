@@ -49,7 +49,7 @@ const PortfolioData: Portfolio[] = [
 export default function Portfolio() {
   return (
     <div className="relative w-full py-20 z-0 min-h-[100vh] bg-bg-secondary overflow-hidden">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-5">
         {/* Portfolio Header */}
         <div className="bg-white w-[200px] flex justify-center items-center text-center rounded-2xl py-4 px-6 text-2xl font-semibold">
           <span className="font-light text-[#171717] rounded-xl uppercase shadow-sm p-2 px-4">
@@ -59,8 +59,8 @@ export default function Portfolio() {
 
         {/* Title and Button */}
         <div className="flex justify-between items-center sm:flex-row flex-col mt-10">
-          <div>
-            <h1 className="text-[#171717] text-[56px] font-medium leading-[70px]">
+          <div className="">
+            <h1 className="lg:text-[56px] md:text-[40px] text-[32px] text-[#171717] font-medium">
               View our projects to see our <br /> quality and creativity.
             </h1>
             <p className="text-[#171717] text-[18px] font-mono mt-5">
@@ -78,7 +78,7 @@ export default function Portfolio() {
         </div>
 
         {/* Portfolio Grid - Dynamic Rendering */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 px-5">
           {PortfolioData.map((project) => (
             <div key={project.id} className="col-span-1">
               <div className="rounded-2xl">

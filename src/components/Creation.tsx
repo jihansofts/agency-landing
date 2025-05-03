@@ -53,9 +53,9 @@ export default function Creation() {
 
   return (
     <div className="bg-bg-secondary py-20 px-4 sm:px-6 lg:px-12">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-5">
         <div className="max-w-8xl mx-auto text-center">
-          <h1 className="text-[#171717] text-3xl sm:text-4xl md:text-5xl font-medium">
+          <h1 className="lg:text-[56px] md:text-[40px] text-[32px] text-[#171717] font-medium">
             Our Web/App Creation Packages
           </h1>
           <p className="text-[#171717] text-base sm:text-lg mt-4 font-mono">
@@ -73,14 +73,14 @@ export default function Creation() {
               className="bg-white rounded-xl shadow-md overflow-hidden">
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex justify-between items-center px-6 py-4 text-left">
-                <div className="md:w-full sm:w-4xl">
-                  <span className="md:text-[20px] sm:text-[18px] font-medium text-[#171717]">
+                className="w-full flex gap-x-4  justify-between items-center lg:px-6 md:px-4 px-4 py-4 text-left ">
+                <div className="md:w-full sm:w-3/2 w-2/2">
+                  <span className="md:text-[20px] sm:text-[12px] font-medium text-[#171717]">
                     {faq.question}
                   </span>
                 </div>
                 {
-                  <div className="w-[50px] h-[50px] cursor-pointer flex justify-center items-center border border-[#171717] rounded-full">
+                  <div className="w-[50px] h-[50px]  cursor-pointer flex justify-center items-center border border-[#171717] rounded-full">
                     {openIndex === index ? <IoClose /> : <FaArrowDown />}
                   </div>
                 }
