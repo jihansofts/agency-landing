@@ -1,7 +1,13 @@
 import React from "react";
 import Image from "next/image";
 
-const PortfolioData = [
+interface Portfolio {
+  id: number;
+  name: string;
+  img: string;
+  brand: string;
+}
+const PortfolioData: Portfolio[] = [
   {
     id: 1,
     name: "Interior Solutions Website Design",

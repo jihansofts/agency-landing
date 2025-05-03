@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <div className="relative w-full min-h-screen lg:h-screen md:h-screen sm:h-screen pt-[30px]">
+    <div className="relative w-full min-h-screen  pt-[30px]">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -22,8 +22,8 @@ export default function Hero() {
       {/* Content */}
       <div className="container mx-auto relative z-10 min-h-screen flex flex-col overflow-visible">
         {/* Overlay Grid */}
-        <div className="absolute -top-20 -right-10 w-[300px] h-[300px] md:w-[400px] md:h-[400px] z-10">
-          <div className="mt-8 grid grid-cols-2 gap-[16px]">
+        <div className="absolute -top-20 -right-10 w-[400px] h-[400px] md:w-[600px] md:h-[700px] z-10">
+          <div className="mt-8 grid grid-cols-2 gap-[20px]">
             {[1, 2, 3, 4, 5, 6].map((item) => (
               <div key={item} className="relative aspect-square">
                 <Image
@@ -42,9 +42,9 @@ export default function Hero() {
 
         {/* Hero Main Grid */}
         <div className="flex-grow z-20 flex items-center justify-center px-4 sm:px-6 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 w-full items-center">
+          <div className="grid grid-cols- lg:grid-cols-12 md:grid-cols-12 gap-8 w-full items-center">
             {/* Left Text Section */}
-            <div className="sm:col-span-12 lg:col-span-7 md:col-span-12 flex flex-col justify-center">
+            <div className="sm:col-span-12 xl:col-span-7 lg:col-span-7 md:col-span-12 flex flex-col justify-center">
               <div className="max-w-[700px] text-center md:text-left">
                 <h1 className="text-4xl capitalize sm:text-5xl md:text-[60px] leading-tight text-white font-medium">
                   One stop solution for your business
@@ -67,26 +67,26 @@ export default function Hero() {
                   <button className=" sm:ml-1 text-[14px] uppercase bg-menu border border-[#443883] text-white font-bold py-4 px-6 rounded-xl mt-4 cursor-pointer hover:bg-[#8b55ffa2] transition-colors">
                     Message on Whatsapp
                   </button>
-                </div>
-                <div className="mt-10 flex sm:flex-row flex-col sm:justify-center sm:items-center gap-x-10 sm:w-full sm:gap-y-4">
-                  <Image
-                    src={"/images/reviewhero1.png"}
-                    alt="review"
-                    width={350}
-                    height={30}
-                  />
-                  <Image
-                    src={"/images/reviewhero2.png"}
-                    alt="review"
-                    width={300}
-                    height={30}
-                    className=" sm:mt-5"
-                  />
+                  <div className="mt-10 flex xl:flex-row md:flex-row sm:flex-row flex-col sm:justify-center sm:items-center md:gap-x-10 sm:w-full sm:gap-y-4">
+                    <Image
+                      src={"/images/reviewhero1.png"}
+                      alt="review"
+                      width={350}
+                      height={30}
+                    />
+                    <Image
+                      src={"/images/reviewhero2.png"}
+                      alt="review"
+                      width={300}
+                      height={30}
+                      className=" md:mt-0 sm:mt-5"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
             {/* Right Contact Box */}
-            <div className="sm:col-span-12 lg:col-span-5 md:col-span-12 flex justify-center items-center px-4 md:px-0 mt-16">
+            <div className="sm:col-span-12 xl:col-span-5 lg:col-span-12 md:col-span-12 flex justify-center items-center px-4 md:px-0 mt-16">
               <div className=" relative w-full max-w-[600px] bg-[url('/images/bginputbox.png')] bg-no-repeat bg-cover bg-center rounded-4xl p-6 sm:p-10">
                 <h5 className="text-white text-center text-lg sm:text-2xl md:text-[32px] font-mono font-bold mb-6">
                   Are you ready to Bring Your Business Idea To Life?
@@ -148,7 +148,7 @@ export default function Hero() {
                     />
                   </div>
                   <div className="flex flex-col sm:flex-row justify-between sm:items-center">
-                    <div className="w-[300px]">
+                    <div className="md:w-[300px] sm:w-full">
                       <p className="text-[14px] text-[#B7B8BE] font-mono">
                         By completing the form, you agree to our Terms and
                         Privacy Policy.
