@@ -1,9 +1,11 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  experimental: {
+    serverActions: true,
+  },
   images: {
     domains: ["flagcdn.com"],
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
