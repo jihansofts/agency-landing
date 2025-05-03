@@ -49,13 +49,13 @@ export default function Hero() {
                 <h1 className="text-4xl capitalize sm:text-5xl md:text-[60px] leading-tight text-white font-medium">
                   One stop solution for your business
                 </h1>
-                <p className="font-mono text-base sm:text-lg md:text-[18px] text-[#A3A3A3] mt-7">
+                <p className="font-mono text-[18px] sm:text-lg md:text-[18px] lg:text-[#A3A3A3] md:text-[#A3A3A3] sm:text-white text-white mt-7">
                   mybusinessidea.com is dedicated to transforming your digital
                   concepts into reality. Whether you need a straightforward
                   website for your current business or have a complex idea
                   you&apos;ve been envisioning, we&apos;re here to assist you.
                 </p>
-                <p className="font-mono text-base sm:text-lg md:text-[18px] text-[#A3A3A3] mt-7">
+                <p className="font-mono text-[18px] text-base sm:text-lg md:text-[18px] lg:text-[#A3A3A3] md:text-[#A3A3A3] sm:text-white text-white mt-7">
                   Not only can we develop your mobile app or website, but we
                   also provide guidance on managing and scaling it from the
                   ground up through our business consulting services.
@@ -67,7 +67,7 @@ export default function Hero() {
                   <button className=" sm:ml-1 text-[14px] uppercase bg-menu border border-[#443883] text-white font-bold py-4 px-6 rounded-xl mt-4 cursor-pointer hover:bg-[#8b55ffa2] transition-colors">
                     Message on Whatsapp
                   </button>
-                  <div className="mt-10 flex xl:flex-row md:flex-row sm:flex-row flex-col sm:justify-center sm:items-center md:gap-x-10 sm:w-full sm:gap-y-4">
+                  <div className="mt-10 flex xl:flex-row md:flex-row sm:flex-row flex-col sm:justify-center sm:items-center items-center md:gap-x-10 sm:w-full sm:gap-y-4">
                     <Image
                       src={"/images/reviewhero1.png"}
                       alt="review"
@@ -79,7 +79,7 @@ export default function Hero() {
                       alt="review"
                       width={300}
                       height={30}
-                      className=" md:mt-0 sm:mt-5"
+                      className=" md:mt-0 sm:mt-5 mt-4"
                     />
                   </div>
                 </div>

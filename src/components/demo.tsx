@@ -6,7 +6,7 @@ import CardMenu from "./CardMenu";
 
 export default function Package() {
   const [activePackage, setActivePackage] = useState<string | null>(null);
-
+  const [expandedFeature, setExpandedFeature] = useState<number | null>(null);
   interface Feature {
     name: string;
     standard: boolean | string;
@@ -129,6 +129,10 @@ export default function Package() {
 
   const togglePackage = (id: string) => {
     setActivePackage(activePackage === id ? null : id);
+  };
+
+  const toggleFeature = (index: number) => {
+    setExpandedFeature(expandedFeature === index ? null : index);
   };
 
   return (
@@ -365,40 +369,78 @@ export default function Package() {
                       </p>
                     </div>
 
-                    {/* Simplified Features List - Single Icon Version */}
-                    <div className="mt-4 space-y-3">
+                    {/* Features List */}
+                    <div className="mt-4">
                       {features.map((feature, index) => (
-                        <div
-                          key={index}
-                          className="p-3 rounded-lg flex justify-between items-center"
-                          style={{ backgroundColor: feature.bg }}>
-                          <span className="font-mono text-[14px] text-white">
-                            {feature.name}
-                          </span>
-                          <div className="ml-4">
-                            {(() => {
-                              // Get the value for the current package
-                              const value =
-                                pkg.id === "standard"
-                                  ? feature.standard
-                                  : pkg.id === "premium"
-                                  ? feature.premium
-                                  : feature.enterprise;
+                        <div key={index} className="mb-2">
+                          <button
+                            onClick={() => toggleFeature(index)}
+                            className="w-full flex justify-between items-center p-3"
+                            style={{ backgroundColor: feature.bg }}>
+                            <span className="font-mono text-[14px] text-white">
+                              {feature.name}
+                            </span>
+                            {expandedFeature === index ? (
+                              <FaChevronUp className="text-white text-sm" />
+                            ) : (
+                              <FaChevronDown className="text-white text-sm" />
+                            )}
+                          </button>
 
-                              if (typeof value === "boolean") {
-                                return value ? (
-                                  <FaCircleCheck className="text-[#70D421] text-lg" />
-                                ) : (
-                                  <FaTimes className="text-red-500 text-lg" />
-                                );
-                              }
-                              return (
-                                <span className="text-white font-mono text-[14px]">
-                                  {value}
-                                </span>
-                              );
-                            })()}
-                          </div>
+                          <AnimatePresence>
+                            {expandedFeature === index && (
+                              <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: "auto" }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.2 }}
+                                className="overflow-hidden">
+                                <div
+                                  className="grid grid-cols-3 p-2"
+                                  style={{ backgroundColor: feature.bg }}>
+                                  <div className="col-span-1 p-2 flex items-center justify-center">
+                                    {typeof feature.standard === "boolean" ? (
+                                      feature.standard ? (
+                                        <FaCircleCheck className="text-[#70D421] text-lg" />
+                                      ) : (
+                                        <FaTimes className="text-red-500 text-lg" />
+                                      )
+                                    ) : (
+                                      <span className="text-white font-mono text-[12px]">
+                                        {feature.standard}
+                                      </span>
+                                    )}
+                                  </div>
+                                  <div className="col-span-1 p-2 flex items-center justify-center">
+                                    {typeof feature.premium === "boolean" ? (
+                                      feature.premium ? (
+                                        <FaCircleCheck className="text-[#70D421] text-lg" />
+                                      ) : (
+                                        <FaTimes className="text-red-500 text-lg" />
+                                      )
+                                    ) : (
+                                      <span className="text-white font-mono text-[12px]">
+                                        {feature.premium}
+                                      </span>
+                                    )}
+                                  </div>
+                                  <div className="col-span-1 p-2 flex items-center justify-center">
+                                    {typeof feature.enterprise === "boolean" ? (
+                                      feature.enterprise ? (
+                                        <FaCircleCheck className="text-[#70D421] text-lg" />
+                                      ) : (
+                                        <FaTimes className="text-red-500 text-lg" />
+                                      )
+                                    ) : (
+                                      <span className="text-white font-mono text-[12px]">
+                                        {feature.enterprise}
+                                      </span>
+                                    )}
+                                  </div>
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
                         </div>
                       ))}
                     </div>

@@ -44,12 +44,12 @@ export default function Services() {
           Explore our services to boost your online presence and drive growth,
           from web <br /> design, development to SEO and digital marketing.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-8 md:gap-5 mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-8 md:gap-5 gap-4 mt-10">
           {serviceData.map((item) => (
             <div
               key={item.id}
               className="rounded-2xl  p-6 py-10 border border-[#E9E9E9] hover:border-none hover:shadow-2xl transition-all duration-300">
-              <div className="flex-1 flex-col items-start space-x-4">
+              <div className="flex-1 flex-col items-start space-x-4 ">
                 <div className="w-[80px] h-[80px] flex items-center justify-center bg-[#E9E8FF] rounded-2xl ">
                   <Image
                     src={item.icon}
