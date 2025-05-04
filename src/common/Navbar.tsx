@@ -21,7 +21,7 @@ export default function Navbar() {
       </h4>
 
       {/* Desktop Navigation */}
-      <div className="hidden md:flex items-center space-x-4">
+      <div className="hidden lg:flex items-center space-x-4">
         <ul className="flex rounded-xl space-x-8 bg-[#241b37] text-white px-5 py-3">
           {navItems.map((item) => (
             <li key={item}>
@@ -48,7 +48,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Button */}
       <button
-        className="md:hidden text-white z-100"
+        className="lg:hidden text-white z-100"
         onClick={() => setIsMenuOpen(!isMenuOpen)}>
         {isMenuOpen ? (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -77,7 +77,7 @@ export default function Navbar() {
         animate={isMenuOpen ? "open" : "closed"}
         variants={menuVariants}
         transition={{ duration: 0.3 }}
-        className="fixed top-0 right-0 w-full h-screen bg-[#241b37] md:hidden flex flex-col items-center justify-center space-y-8">
+        className="fixed top-0 right-0 w-full h-screen bg-[#241b37] lg:hidden flex flex-col items-center justify-center space-y-8">
         {navItems.map((item) => (
           <Link
             key={item}

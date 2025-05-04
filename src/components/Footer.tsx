@@ -74,10 +74,10 @@ export default function Footer() {
                 Contact
               </h4>
               <p className="text-[#A3A3A3] text-[18px] font-mono mt-5 cursor-pointer hover:text-[#804FEF]">
-                emailnextech@gmail.com
+                allie@allmybusinessideas.com
               </p>
               <p className="text-[#A3A3A3] text-[18px] font-mono mt-5 cursor-pointer hover:text-[#804FEF]">
-                WhatsApp: 01234 567 890
+                WhatsApp: +880 1721495805
               </p>
               {/* Social Icons */}
               <div className="flex gap-4 mt-6">
