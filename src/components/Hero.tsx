@@ -97,7 +97,7 @@ export default function Hero() {
   // };
 
   return (
-    <div className="relative w-full min-h-screen  pt-[30px]">
+    <section id="home" className="relative w-full min-h-screen  pt-[30px]">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -176,11 +176,11 @@ export default function Hero() {
                     transition={{ duration: 1, delay: 0.9 }}
                     className="space-x-4">
                     <button className="text-[14px] uppercase bg-gradient-to-t from-[#433199] to-[#8b55ff] text-white font-bold py-4 px-6 rounded-xl mt-4 cursor-pointer hover:bg-[#8b55ffa2] transition-colors">
-                      Schedule a meeting
+                      Call/Whatsapp: +1 (424) 410-3159
                     </button>
-                    <button className=" sm:ml-1 text-[14px] uppercase bg-menu border border-[#443883] text-white font-bold py-4 px-6 rounded-xl mt-4 cursor-pointer hover:bg-[#8b55ffa2] transition-colors">
+                    {/* <button className=" sm:ml-1 text-[14px] uppercase bg-menu border border-[#443883] text-white font-bold py-4 px-6 rounded-xl mt-4 cursor-pointer hover:bg-[#8b55ffa2] transition-colors">
                       Message on Whatsapp
-                    </button>
+                    </button> */}
                   </motion.div>
                   <motion.div
                     initial={{ opacity: 0, y: 100 }}
@@ -464,6 +464,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

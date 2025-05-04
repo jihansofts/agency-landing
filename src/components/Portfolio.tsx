@@ -52,7 +52,9 @@ const PortfolioData: Portfolio[] = [
 export default function Portfolio() {
   const [selectedImage, setSelectedImage] = useState<Portfolio | null>(null);
   return (
-    <div className="relative w-full py-20 z-0 min-h-[100vh] bg-bg-secondary overflow-hidden">
+    <section
+      id="portfolio"
+      className="relative w-full py-20 z-0 min-h-[100vh] bg-bg-secondary overflow-hidden">
       <div className="container mx-auto px-5">
         {/* Portfolio Header */}
         <motion.div
@@ -157,6 +159,6 @@ export default function Portfolio() {
           )}
         </AnimatePresence>
       </div>
-    </div>
+    </section>
   );
 }

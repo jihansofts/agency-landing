@@ -35,7 +35,7 @@ const serviceData: Service[] = [
 ];
 export default function Services() {
   return (
-    <div className="bg-white">
+    <section id="services" className="bg-white">
       <div className="container mx-auto py-20 px-5">
         <h1 className="lg:text-[56px] md:text-[40px] text-[32px] text-[#171717] font-medium">
           Services we offer
@@ -69,6 +69,6 @@ export default function Services() {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

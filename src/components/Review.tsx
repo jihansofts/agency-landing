@@ -162,14 +162,14 @@ export default function Review() {
     animate: {
       x: "-100%",
       transition: {
-        duration: 60, // Slower duration for horizontal scroll
+        duration: 120, // Slower duration for horizontal scroll
         repeat: Infinity,
         ease: "linear",
       },
     },
   };
   return (
-    <div className="bg-bg-secondary py-20">
+    <section id="testimonials" className="bg-bg-secondary py-20">
       <div className="container mx-auto">
         <div className="lg:max-w-4xl md:max-w-3xl max-w-2xl px-5">
           <h1 className="lg:text-[56px] md:text-[40px] text-[32px] text-[#171717] font-medium">
@@ -216,6 +216,6 @@ export default function Review() {
           </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
