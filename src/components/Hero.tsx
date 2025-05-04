@@ -40,7 +40,7 @@ export default function Hero() {
       {/* Content */}
       <div className="container mx-auto relative z-10 min-h-screen flex flex-col overflow-visible">
         {/* Overlay Grid */}
-        <div className="absolute -top-20 -right-10 w-[400px] h-[400px] md:w-[600px] md:h-[700px] z-10">
+        <div className="absolute lg:opacity-100 md:opacity-100 opacity-25 -top-20 -right-10 w-[400px] h-[400px] md:w-[600px] md:h-[700px] z-10">
           <div className="mt-8 grid grid-cols-2 gap-[20px]">
             {[1, 2, 3, 4, 5, 6].map((item) => (
               <motion.div
