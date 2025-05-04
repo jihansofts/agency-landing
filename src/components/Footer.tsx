@@ -76,7 +76,11 @@ export default function Footer() {
               <p className="text-[#A3A3A3] text-[18px] font-mono mt-5 cursor-pointer hover:text-[#804FEF]">
                 allie@allmybusinessideas.com
               </p>
-              <p className="text-[#A3A3A3] text-[18px] font-mono mt-5 cursor-pointer hover:text-[#804FEF]">
+              <p
+                onClick={() =>
+                  window.open(`https://wa.me/8801721495805`, "_blank")
+                }
+                className="text-[#A3A3A3] text-[18px] font-mono mt-5 cursor-pointer hover:text-[#804FEF]">
                 WhatsApp: +880 1721495805
               </p>
               {/* Social Icons */}
