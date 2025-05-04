@@ -39,11 +39,12 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <motion.p
+        <motion.button
           whileTap={{ scale: 0.95 }}
+          onClick={() => window.open("tel:+14244103159")}
           className="text-[14px] py-3 cursor-pointer rounded-xl px-4 text-white uppercase font-semibold bg-gradient-to-t from-[#433199] to-[#8b55ff]">
           Call/Whatsapp: +1 (424) 410-3159
-        </motion.p>
+        </motion.button>
       </div>
 
       {/* Mobile Menu Button */}
