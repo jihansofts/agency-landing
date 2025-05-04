@@ -4,8 +4,39 @@ import Navbar from "@/common/Navbar";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
+interface FormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  projectType: string;
+  message: string;
+}
 export default function Hero() {
-  const [selectedValue, setSelectedValue] = useState("");
+  // const [selectedValue, setSelectedValue] = useState("");
+  const [formData, setFormData] = useState<FormData>({
+    firstName: "",
+    lastName: "",
+    email: "",
+    projectType: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    success: boolean;
+    message: string;
+  } | null>(null);
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
   const continuousUpAnimation = {
     initial: { y: 0 },
@@ -18,9 +49,52 @@ export default function Hero() {
       },
     },
   };
-  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedValue(e.target.value);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus({
+          success: true,
+          message: "Message sent successfully!",
+        });
+        // Reset form
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          projectType: "",
+          message: "",
+        });
+      } else {
+        throw new Error(data.message || "Failed to send message");
+      }
+    } catch (error) {
+      setSubmitStatus({
+        success: false,
+        message:
+          error instanceof Error ? error.message : "An unknown error occurred",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+  // const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  //   setSelectedValue(e.target.value);
+  // };
 
   return (
     <div className="relative w-full min-h-screen  pt-[30px]">
@@ -136,6 +210,167 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
               className="sm:col-span-12 xl:col-span-5 lg:col-span-12 md:col-span-12 flex justify-center items-center px-4 md:px-0 mt-16">
+              <div className="relative w-full max-w-[600px] bg-[url('/images/bginputbox.png')] bg-no-repeat bg-cover bg-center rounded-4xl p-6 sm:p-10">
+                <h5 className="text-white text-center text-lg sm:text-2xl md:text-[32px] font-mono font-bold mb-6">
+                  Are you ready to Bring Your Business Idea To Life?
+                </h5>
+
+                <form
+                  onSubmit={handleSubmit}
+                  className="space-y-4 bg-white rounded-3xl p-6">
+                  {/* First Name */}
+                  <div>
+                    <label
+                      htmlFor="firstName"
+                      className="text-[#262626] font-mono text-[16px]">
+                      First Name
+                    </label>
+                    <input
+                      id="firstName"
+                      name="firstName"
+                      type="text"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      placeholder="John*"
+                      required
+                      className="w-full border-b border-[#E9E9E9] px-4 py-3 text-black placeholder-[#B7B8BE]"
+                    />
+                  </div>
+
+                  {/* Last Name */}
+                  <div>
+                    <label
+                      htmlFor="lastName"
+                      className="text-[#262626] font-mono text-[16px]">
+                      Last Name
+                    </label>
+                    <input
+                      id="lastName"
+                      name="lastName"
+                      type="text"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      placeholder="Doe*"
+                      required
+                      className="w-full border-b border-[#E9E9E9] px-4 py-3 text-black placeholder-[#B7B8BE]"
+                    />
+                  </div>
+
+                  {/* Email */}
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="text-[#262626] font-mono text-[16px]">
+                      Email Address
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="hello@example.com"
+                      required
+                      className="w-full border-b border-[#E9E9E9] px-4 py-3 text-black placeholder-[#B7B8BE]"
+                    />
+                  </div>
+
+                  {/* Project Type */}
+                  <div>
+                    <label
+                      htmlFor="projectType"
+                      className="text-[#262626] font-mono text-[16px]">
+                      Project Type
+                    </label>
+                    <select
+                      id="projectType"
+                      name="projectType"
+                      value={formData.projectType}
+                      onChange={handleChange}
+                      required
+                      className={`w-full border-b border-[#E9E9E9] px-4 py-3 ${
+                        formData.projectType
+                          ? "text-[#262626]"
+                          : "text-[#B7B8BE]"
+                      }`}>
+                      <option value="" disabled>
+                        Select project type
+                      </option>
+                      <option
+                        className="text-[#262626]"
+                        value="Standard package">
+                        Standard Package
+                      </option>
+                      <option
+                        className="text-[#262626]"
+                        value="Premium package">
+                        Premium Package
+                      </option>
+                      <option
+                        className="text-[#262626]"
+                        value="Enterprise package">
+                        Enterprise Package
+                      </option>
+                      <option className="text-[#262626]" value="Custom package">
+                        Custom Package
+                      </option>
+                    </select>
+                  </div>
+
+                  {/* Message */}
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className="text-[#262626] font-mono text-[16px]">
+                      What&apos;s your message
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Hello Nextech, I need your help with..."
+                      required
+                      className="w-full border-b text-black border-[#E9E9E9] px-4 py-3 placeholder-[#B7B8BE]"
+                      rows={5}
+                    />
+                  </div>
+
+                  {/* Submit Area */}
+                  <div className="flex flex-col sm:flex-row justify-between sm:items-center">
+                    <div className="md:w-[300px] sm:w-full">
+                      <p className="text-[14px] text-[#B7B8BE] font-mono">
+                        By completing the form, you agree to our Terms and
+                        Privacy Policy.
+                      </p>
+                    </div>
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="mt-4 sm:mt-0 text-[14px] bg-gradient-to-t from-[#433199] to-[#8b55ff] text-white py-3 px-4 rounded-lg font-bold disabled:opacity-50">
+                      {isSubmitting ? "Sending..." : "Send Message"}
+                    </button>
+                  </div>
+
+                  {/* Status Message */}
+                  {submitStatus && (
+                    <div
+                      className={`mt-4 p-3 rounded-md ${
+                        submitStatus.success
+                          ? "bg-green-100 text-green-800"
+                          : "bg-red-100 text-red-800"
+                      }`}>
+                      {submitStatus.message}
+                    </div>
+                  )}
+                </form>
+              </div>
+            </motion.div>
+            {/* <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="sm:col-span-12 xl:col-span-5 lg:col-span-12 md:col-span-12 flex justify-center items-center px-4 md:px-0 mt-16">
               <div className=" relative w-full max-w-[600px] bg-[url('/images/bginputbox.png')] bg-no-repeat bg-cover bg-center rounded-4xl p-6 sm:p-10">
                 <h5 className="text-white text-center text-lg sm:text-2xl md:text-[32px] font-mono font-bold mb-6">
                   Are you ready to Bring Your Business Idea To Life?
@@ -225,7 +460,7 @@ export default function Hero() {
                   </div>
                 </form>
               </div>
-            </motion.div>
+            </motion.div> */}
           </div>
         </div>
       </div>

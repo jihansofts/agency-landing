@@ -12,25 +12,25 @@ const serviceData: Service[] = [
     id: 1,
     name: "Social Media Marketing",
     icon: "/images/service1.svg",
-    dec: "Our UX design services are focused on creating intuitive, enjoyable, and efficient digital experiences.",
+    dec: "At Allmybusinessidea, we offer expert social media services to help your brand grow and engage with your audience effectively.",
   },
   {
     id: 2,
     name: "Business Consulting",
     icon: "/images/service2.svg",
-    dec: "Our UX design services are focused on creating intuitive, enjoyable, and efficient digital experiences.",
+    dec: "At Allmybusinessidea, we provide expert business consulting to help you optimize strategies, increase efficiency, and drive growth for your company.",
   },
   {
     id: 3,
     name: "Lead generation",
     icon: "/images/service3.svg",
-    dec: "Our UX design services are focused on creating intuitive, enjoyable, and efficient digital experiences.",
+    dec: "we specialize in lead generation strategies that help you attract, engage, and convert high-quality prospects into valuable customers.",
   },
   {
     id: 4,
     name: "Web/App Development",
     icon: "/images/service4.svg",
-    dec: "Our UX design services are focused on creating intuitive, enjoyable, and efficient digital experiences.",
+    dec: "Our UX design and web/app development services are focused on creating intuitive, enjoyable, and efficient digital experiences.",
   },
 ];
 export default function Services() {

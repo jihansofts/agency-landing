@@ -13,11 +13,11 @@ export default function Faq() {
       answer:
         "Yes, we can redesign your website or mobile apps as well. We have a team of designers and developers who can bring your vision to life. ",
     },
-    {
-      question: "Do you redesign a website or mobile apps as well ?",
-      answer:
-        "Yes, we can redesign your website or mobile apps as well. We have a team of designers and developers who can bring your vision to life. ",
-    },
+    // {
+    //   question: "Do you redesign a website or mobile apps as well ?",
+    //   answer:
+    //     "Yes, we can redesign your website or mobile apps as well. We have a team of designers and developers who can bring your vision to life. ",
+    // },
     {
       question: "How much does a website design or development project cost?",
       answer:
@@ -31,15 +31,14 @@ export default function Faq() {
     {
       question:
         "Will I be able to make changes to the website after it's launched?",
-      answer:
-        "Yes, we can create a website or mobile app for you. We have a team of designers and developers who can bring your vision to life. ",
+      answer: "Yes, You will be able to make small changes.",
     },
-    {
-      question:
-        "Will I be able to make changes to the website after it's launched?",
-      answer:
-        "Yes, we can create a website or mobile app for you. We have a team of designers and developers who can bring your vision to life. ",
-    },
+    // {
+    //   question:
+    //     "Will I be able to make changes to the website after it's launched?",
+    //   answer:
+    //     "Yes, we can create a website or mobile app for you. We have a team of designers and developers who can bring your vision to life. ",
+    // },
   ];
 
   return (
