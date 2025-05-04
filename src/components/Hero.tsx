@@ -25,7 +25,6 @@ export default function Hero() {
     message: string;
   } | null>(null);
 
-  
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement

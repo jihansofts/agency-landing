@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import ReviewCard from "@/common/ReviewCard";
 import React from "react";
 
@@ -156,11 +157,21 @@ export default function Review() {
       countryCode: "us",
     },
   ];
-
+  const continuousUpAnimation = {
+    initial: { x: 0 },
+    animate: {
+      x: "-100%",
+      transition: {
+        duration: 60, // Slower duration for horizontal scroll
+        repeat: Infinity,
+        ease: "linear",
+      },
+    },
+  };
   return (
     <div className="bg-bg-secondary py-20">
       <div className="container mx-auto">
-        <div className="lg:max-w-4xl md:max-w-3xl max-w-2xl px-5 ">
+        <div className="lg:max-w-4xl md:max-w-3xl max-w-2xl px-5">
           <h1 className="lg:text-[56px] md:text-[40px] text-[32px] text-[#171717] font-medium">
             What Our Clients <br /> Say About Us
           </h1>
@@ -169,16 +180,40 @@ export default function Review() {
             solutions have helped transform their businesses and drive success.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 mt-10 gap-6">
-          {testimonials.map((testimonial) => (
-            <ReviewCard
-              key={testimonial.id}
-              username={testimonial.username}
-              country={testimonial.country}
-              comment={testimonial.comment}
-              countryCode={testimonial.countryCode}
-            />
-          ))}
+
+        {/* Single column with horizontal scroll */}
+        <div className="mt-10 overflow-hidden">
+          <motion.div
+            className="flex gap-6 w-max" // w-max makes container as wide as its content
+            variants={continuousUpAnimation}
+            initial="initial"
+            animate="animate">
+            {/* Original testimonials */}
+            {testimonials.map((testimonial) => (
+              <div key={testimonial.id} className="w-[300px]">
+                {" "}
+                {/* Fixed width for each card */}
+                <ReviewCard
+                  username={testimonial.username}
+                  country={testimonial.country}
+                  comment={testimonial.comment}
+                  countryCode={testimonial.countryCode}
+                />
+              </div>
+            ))}
+
+            {/* Duplicate testimonials for seamless looping */}
+            {testimonials.map((testimonial) => (
+              <div key={`dup-${testimonial.id}`} className="w-[300px]">
+                <ReviewCard
+                  username={testimonial.username}
+                  country={testimonial.country}
+                  comment={testimonial.comment}
+                  countryCode={testimonial.countryCode}
+                />
+              </div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </div>
