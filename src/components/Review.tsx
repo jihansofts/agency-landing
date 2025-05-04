@@ -162,7 +162,7 @@ export default function Review() {
     animate: {
       x: "-100%",
       transition: {
-        duration: 120, // Slower duration for horizontal scroll
+        duration: 200, // Slower duration for horizontal scroll
         repeat: Infinity,
         ease: "linear",
       },
