@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 // ❌ Remove 'default' and use named export
-console.log("SMTP_HOST", process.env.SMTP_HOST);
+
 export async function POST(req: Request) {
   try {
     const { firstName, lastName, email, projectType, message } =
@@ -19,7 +19,7 @@ export async function POST(req: Request) {
     }
 
     const transporter = nodemailer.createTransport({
-      service: process.env.SMTP_HOST,
+      service: "gmail",
       auth: {
         user: "playergtax6@gmail.com", // Use environment variables
         pass: "yxzzkyttsckzxxjm",

@@ -176,9 +176,9 @@ export default function Hero() {
                     transition={{ duration: 1, delay: 0.9 }}
                     className="space-x-4">
                     <button
-                      onClick={() => window.open("tel:+14244103159")}
+                      onClick={() => window.open("tel:+1424323-8570")}
                       className="text-[14px] uppercase bg-gradient-to-t from-[#433199] to-[#8b55ff] text-white font-bold py-4 px-6 rounded-xl mt-4 cursor-pointer hover:bg-[#8b55ffa2] transition-colors">
-                      Call/Whatsapp: +1 (424) 410-3159
+                      Call/Whatsapp: +1 (424)323-8570
                     </button>
                     {/* <button className=" sm:ml-1 text-[14px] uppercase bg-menu border border-[#443883] text-white font-bold py-4 px-6 rounded-xl mt-4 cursor-pointer hover:bg-[#8b55ffa2] transition-colors">
                       Message on Whatsapp

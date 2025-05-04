@@ -81,7 +81,7 @@ export default function Footer() {
                 //   window.open(`https://wa.me/8801721495805`, "_blank")
                 // }
                 className="text-[#A3A3A3] text-[18px] font-mono mt-5 cursor-pointer hover:text-[#804FEF]">
-                WhatsApp: +1 (424) 410-3159
+                WhatsApp:+1 (424)323-8570
               </p>
               {/* Social Icons */}
               <div className="flex gap-4 mt-6">
