@@ -94,7 +94,7 @@ export default function Package() {
       bg: "#2F2741",
     },
     {
-      name: "Business",
+      name: "Business to Delivery",
       standard: "7 days",
       premium: "10 days",
       enterprise: "15 days",

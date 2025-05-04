@@ -1,4 +1,3 @@
-"use client";
 import React, { useState } from "react";
 import Navbar from "@/common/Navbar";
 import Image from "next/image";
@@ -26,6 +25,7 @@ export default function Hero() {
     message: string;
   } | null>(null);
 
+  
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -56,7 +56,7 @@ export default function Hero() {
     setSubmitStatus(null);
 
     try {
-      const response = await fetch("/api/send-email", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -64,24 +64,25 @@ export default function Hero() {
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
+      const result = await response.json();
 
-      if (response.ok) {
-        setSubmitStatus({
-          success: true,
-          message: "Message sent successfully!",
-        });
-        // Reset form
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          projectType: "",
-          message: "",
-        });
-      } else {
-        throw new Error(data.message || "Failed to send message");
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to send message");
       }
+
+      setSubmitStatus({
+        success: true,
+        message: result.message,
+      });
+
+      // Reset form
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        projectType: "",
+        message: "",
+      });
     } catch (error) {
       setSubmitStatus({
         success: false,
