@@ -1,9 +1,27 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "@/common/Navbar";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Hero() {
+  const [selectedValue, setSelectedValue] = useState("");
+
+  const continuousUpAnimation = {
+    initial: { y: 0 },
+    animate: {
+      y: "-100%", // Moves up by its own height
+      transition: {
+        duration: 10, // Adjust duration as needed
+        repeat: Infinity,
+        ease: "linear", // Constant speed
+      },
+    },
+  };
+  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedValue(e.target.value);
+  };
+
   return (
     <div className="relative w-full min-h-screen  pt-[30px]">
       {/* Background Image */}
@@ -25,14 +43,19 @@ export default function Hero() {
         <div className="absolute -top-20 -right-10 w-[400px] h-[400px] md:w-[600px] md:h-[700px] z-10">
           <div className="mt-8 grid grid-cols-2 gap-[20px]">
             {[1, 2, 3, 4, 5, 6].map((item) => (
-              <div key={item} className="relative aspect-square">
+              <motion.div
+                variants={continuousUpAnimation}
+                initial="initial"
+                animate="animate"
+                key={item}
+                className="relative aspect-square">
                 <Image
                   src={`/images/overley${item}.png`}
                   alt={`Gallery ${item}`}
                   fill
                   className="object-cover rounded-lg"
                 />
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -46,28 +69,50 @@ export default function Hero() {
             {/* Left Text Section */}
             <div className="sm:col-span-12 xl:col-span-7 lg:col-span-7 md:col-span-12 flex flex-col justify-center">
               <div className="max-w-[700px] text-center md:text-left">
-                <h1 className="text-4xl capitalize sm:text-5xl md:text-[60px] leading-tight text-white font-medium">
+                <motion.h1
+                  initial={{ opacity: 0, x: -100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1 }}
+                  className="text-4xl capitalize sm:text-5xl md:text-[60px] leading-tight text-white font-medium">
                   One stop solution for your business
-                </h1>
-                <p className="font-mono text-[18px] sm:text-lg md:text-[18px] lg:text-[#A3A3A3] md:text-[#A3A3A3] sm:text-white text-white mt-7">
+                </motion.h1>
+                <motion.p
+                  initial={{ opacity: 0, x: -100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1, delay: 0.3 }}
+                  className="font-mono text-[18px] sm:text-lg md:text-[18px] lg:text-[#A3A3A3] md:text-[#A3A3A3] sm:text-white text-white mt-7">
                   mybusinessidea.com is dedicated to transforming your digital
                   concepts into reality. Whether you need a straightforward
                   website for your current business or have a complex idea
                   you&apos;ve been envisioning, we&apos;re here to assist you.
-                </p>
-                <p className="font-mono text-[18px] text-base sm:text-lg md:text-[18px] lg:text-[#A3A3A3] md:text-[#A3A3A3] sm:text-white text-white mt-7">
+                </motion.p>
+                <motion.p
+                  initial={{ opacity: 0, x: -100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1, delay: 0.6 }}
+                  className="font-mono text-[18px] text-base sm:text-lg md:text-[18px] lg:text-[#A3A3A3] md:text-[#A3A3A3] sm:text-white text-white mt-7">
                   Not only can we develop your mobile app or website, but we
                   also provide guidance on managing and scaling it from the
                   ground up through our business consulting services.
-                </p>
-                <div className="mt-10 sm:flex-col  space-x-4">
-                  <button className="text-[14px] uppercase bg-gradient-to-t from-[#433199] to-[#8b55ff] text-white font-bold py-4 px-6 rounded-xl mt-4 cursor-pointer hover:bg-[#8b55ffa2] transition-colors">
-                    Schedule a meeting
-                  </button>
-                  <button className=" sm:ml-1 text-[14px] uppercase bg-menu border border-[#443883] text-white font-bold py-4 px-6 rounded-xl mt-4 cursor-pointer hover:bg-[#8b55ffa2] transition-colors">
-                    Message on Whatsapp
-                  </button>
-                  <div className="mt-10 flex xl:flex-row md:flex-row sm:flex-row flex-col sm:justify-center sm:items-center items-center md:gap-x-10 sm:w-full sm:gap-y-4">
+                </motion.p>
+                <div className="mt-10 sm:flex-col space-x-4">
+                  <motion.div
+                    initial={{ opacity: 0, x: -100 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1, delay: 0.9 }}
+                    className="space-x-4">
+                    <button className="text-[14px] uppercase bg-gradient-to-t from-[#433199] to-[#8b55ff] text-white font-bold py-4 px-6 rounded-xl mt-4 cursor-pointer hover:bg-[#8b55ffa2] transition-colors">
+                      Schedule a meeting
+                    </button>
+                    <button className=" sm:ml-1 text-[14px] uppercase bg-menu border border-[#443883] text-white font-bold py-4 px-6 rounded-xl mt-4 cursor-pointer hover:bg-[#8b55ffa2] transition-colors">
+                      Message on Whatsapp
+                    </button>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 100 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, delay: 1.2 }}
+                    className="mt-10 flex xl:flex-row md:flex-row sm:flex-row flex-col sm:justify-center sm:items-center items-center md:gap-x-10 sm:w-full sm:gap-y-4">
                     <Image
                       src={"/images/reviewhero1.png"}
                       alt="review"
@@ -81,12 +126,16 @@ export default function Hero() {
                       height={30}
                       className=" md:mt-0 sm:mt-5 mt-4"
                     />
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
             {/* Right Contact Box */}
-            <div className="sm:col-span-12 xl:col-span-5 lg:col-span-12 md:col-span-12 flex justify-center items-center px-4 md:px-0 mt-16">
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="sm:col-span-12 xl:col-span-5 lg:col-span-12 md:col-span-12 flex justify-center items-center px-4 md:px-0 mt-16">
               <div className=" relative w-full max-w-[600px] bg-[url('/images/bginputbox.png')] bg-no-repeat bg-cover bg-center rounded-4xl p-6 sm:p-10">
                 <h5 className="text-white text-center text-lg sm:text-2xl md:text-[32px] font-mono font-bold mb-6">
                   Are you ready to Bring Your Business Idea To Life?
@@ -125,15 +174,31 @@ export default function Hero() {
                   </div>
                   <div>
                     <select
-                      defaultValue=""
-                      className="w-full border-b text-[#B7B8BE] border-[#E9E9E9] px-4 py-3">
+                      value={selectedValue}
+                      onChange={handleSelectChange}
+                      className={`w-full border-b border-[#E9E9E9] px-4 py-3 ${
+                        selectedValue ? "text-[#262626]" : "text-[#B7B8BE]"
+                      }`}>
                       <option value="" disabled>
                         Select project type
                       </option>
-                      <option value="Standard package">Standard package</option>
-                      <option value="Premium package">Premium package</option>
-                      <option value="Enterprise package">
-                        Enterprise package
+                      <option
+                        className="text-[#262626]"
+                        value="Standard package">
+                        Standard Package
+                      </option>
+                      <option
+                        className="text-[#262626]"
+                        value="Premium package">
+                        Premium Package
+                      </option>
+                      <option
+                        className="text-[#262626]"
+                        value="Enterprise package">
+                        Enterprise Package
+                      </option>
+                      <option className="text-[#262626]" value="Custom package">
+                        Custom Package
                       </option>
                     </select>
                   </div>
@@ -160,7 +225,7 @@ export default function Hero() {
                   </div>
                 </form>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

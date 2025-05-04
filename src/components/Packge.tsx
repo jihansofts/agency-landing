@@ -314,58 +314,63 @@ export default function Package() {
       </div>
 
       {/* Mobile View */}
+      {/* Mobile View */}
       <div className="md:hidden container mx-auto">
         {packages.map((pkg) => (
           <div
             key={pkg.id}
             className="mb-4 bg-[#17102F] rounded-xl overflow-hidden">
-            <button
-              onClick={() => togglePackage(pkg.id)}
-              className="w-full p-6 flex justify-between items-center text-left">
-              <div>
-                <h3 className="font-mono text-[18px] font-medium text-white">
-                  {pkg.title}
-                </h3>
-                <div className="flex items-center mt-2">
-                  <h1 className="font-mono text-[32px] font-medium text-white">
+            <div className="p-6">
+              {/* Package Header */}
+              <div className="flex justify-between items-start">
+                <div>
+                  <h3 className="font-mono text-[18px] font-medium text-white">
+                    {pkg.title}
+                  </h3>
+                  <h1 className="font-mono text-[32px] font-medium text-white mt-1">
                     {pkg.price} <span className="text-[16px]">/mo</span>
                   </h1>
                   {pkg.popular && (
-                    <span className="ml-3 font-mono text-[10px] font-normal uppercase py-1 px-2 rounded-md bg-gradient-to-t from-[#433199] to-[#8b55ff] text-white">
+                    <span className="inline-block mt-2 font-mono text-[10px] font-normal uppercase py-1 px-2 rounded-md bg-gradient-to-t from-[#433199] to-[#8b55ff] text-white">
                       Popular
                     </span>
                   )}
                 </div>
+                <button
+                  onClick={() => togglePackage(pkg.id)}
+                  className="text-white text-lg">
+                  {activePackage === pkg.id ? (
+                    <FaChevronUp />
+                  ) : (
+                    <FaChevronDown />
+                  )}
+                </button>
               </div>
-              {activePackage === pkg.id ? (
-                <FaChevronUp className="text-white text-lg" />
-              ) : (
-                <FaChevronDown className="text-white text-lg" />
-              )}
-            </button>
 
-            <AnimatePresence>
-              {activePackage === pkg.id && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="overflow-hidden">
-                  <div className="px-6 pb-6">
-                    <p className="font-mono text-[14px] font-medium text-[#A3A3A3]">
-                      {pkg.description}
-                    </p>
-                    <div className="mt-5 py-4 flex justify-between items-center border-y border-[#3D3353]">
-                      <span className="font-mono text-[14px] font-medium text-white">
-                        Billed monthly
-                      </span>
-                      <p className="font-mono text-[14px] font-medium text-white">
-                        {pkg.monthlyPrice}
-                      </p>
-                    </div>
+              {/* Package Description - Always Visible */}
+              <p className="font-mono text-[14px] font-medium text-[#A3A3A3] mt-3">
+                {pkg.description}
+              </p>
 
-                    {/* Simplified Features List - Single Icon Version */}
+              {/* Billing Info - Always Visible */}
+              <div className="mt-4 py-3 flex justify-between items-center border-y border-[#3D3353]">
+                <span className="font-mono text-[14px] font-medium text-white">
+                  Billed monthly
+                </span>
+                <p className="font-mono text-[14px] font-medium text-white">
+                  {pkg.monthlyPrice}
+                </p>
+              </div>
+
+              {/* Features List - Collapsible */}
+              <AnimatePresence>
+                {activePackage === pkg.id && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="overflow-hidden">
                     <div className="mt-4 space-y-3">
                       {features.map((feature, index) => (
                         <div
@@ -377,7 +382,6 @@ export default function Package() {
                           </span>
                           <div className="ml-4">
                             {(() => {
-                              // Get the value for the current package
                               const value =
                                 pkg.id === "standard"
                                   ? feature.standard
@@ -402,15 +406,15 @@ export default function Package() {
                         </div>
                       ))}
                     </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
-                    {/* Request Button */}
-                    <button className="w-full mt-6 font-semibold cursor-pointer uppercase py-3 rounded-lg text-[14px] text-white bg-[#6F51FF] hover:bg-[#5a3fd4] duration-300">
-                      Request {pkg.title}
-                    </button>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+              {/* Request Button - Always Visible */}
+              <button className="w-full mt-6 font-semibold cursor-pointer uppercase py-3 rounded-lg text-[14px] text-white bg-[#6F51FF] hover:bg-[#5a3fd4] duration-300">
+                REQUEST PACKAGE
+              </button>
+            </div>
           </div>
         ))}
       </div>

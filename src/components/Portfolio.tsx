@@ -1,5 +1,8 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaTimes } from "react-icons/fa";
 
 interface Portfolio {
   id: number;
@@ -47,15 +50,22 @@ const PortfolioData: Portfolio[] = [
 ];
 
 export default function Portfolio() {
+  const [selectedImage, setSelectedImage] = useState<Portfolio | null>(null);
   return (
     <div className="relative w-full py-20 z-0 min-h-[100vh] bg-bg-secondary overflow-hidden">
       <div className="container mx-auto px-5">
         {/* Portfolio Header */}
-        <div className="bg-white w-[200px] flex justify-center items-center text-center rounded-2xl py-4 px-6 text-2xl font-semibold">
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="bg-white w-[200px] flex justify-center items-center text-center rounded-2xl py-4 px-6 text-2xl font-semibold">
           <span className="font-light text-[#171717] rounded-xl uppercase shadow-sm p-2 px-4">
             Portfolio
           </span>
-        </div>
+        </motion.div>
 
         {/* Title and Button */}
         <div className="flex justify-between items-center sm:flex-row flex-col mt-10">
@@ -80,7 +90,10 @@ export default function Portfolio() {
         {/* Portfolio Grid - Dynamic Rendering */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 px-5">
           {PortfolioData.map((project) => (
-            <div key={project.id} className="col-span-1">
+            <div
+              key={project.id}
+              className="col-span-1 cursor-pointer"
+              onClick={() => setSelectedImage(project)}>
               <div className="rounded-2xl">
                 <div className="relative w-full h-[300px]">
                   <Image
@@ -102,6 +115,47 @@ export default function Portfolio() {
             </div>
           ))}
         </div>
+        <AnimatePresence>
+          {selectedImage && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 p-4"
+              onClick={() => setSelectedImage(null)}>
+              <motion.div
+                initial={{ scale: 0.9 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.9 }}
+                className="relative max-w-4xl w-full max-h-[90vh]"
+                onClick={(e) => e.stopPropagation()}>
+                <button
+                  className="absolute cursor-pointer -top-10 right-0 text-white text-2xl z-10"
+                  onClick={() => setSelectedImage(null)}>
+                  <FaTimes />
+                </button>
+
+                <div className="relative w-full h-[70vh]">
+                  <Image
+                    src={selectedImage.img}
+                    alt={selectedImage.name}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+
+                <div className="bg-white p-4 rounded-b-lg">
+                  <h2 className="text-[20px] font-bold text-[#171717]">
+                    {selectedImage.name}
+                  </h2>
+                  <p className="text-[#A3A3A3] text-[12px] uppercase mt-1">
+                    {selectedImage.brand}
+                  </p>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );
