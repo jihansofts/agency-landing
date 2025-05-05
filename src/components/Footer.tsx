@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { FaFacebookF, FaTwitter, FaInstagram, FaDiscord } from "react-icons/fa";
 
 export default function Footer() {
@@ -37,7 +38,7 @@ export default function Footer() {
                 Mybusiness <span className="text-[#6F51FF]">Idea.</span>
               </h4>
               <p className="text-[#A3A3A3] text-[18px] font-mono mt-5">
-                Mybusinessidea is a full-service business and web solution
+                AllMybusinessidea is a full-service business and web solution
                 agency dedicated to helping businesses thrive in the digital
                 age. Our team of experts specializes in web development, design,
                 SEO, and digital marketing.
@@ -51,19 +52,21 @@ export default function Footer() {
               </h4>
               <ul className="text-[#A3A3A3] space-y-4 text-left cursor-pointer text-[18px]  font-mono mt-5">
                 <li className="hover:text-[#804FEF] duration-300 transition-all">
-                  Home
+                  <Link href={`#home`}>Home</Link>
+                </li>
+
+                <li className="hover:text-[#804FEF] duration-300 transition-all">
+                  <Link href={`#portfolio`}>Portfolio</Link>
                 </li>
                 <li className="hover:text-[#804FEF] duration-300 transition-all">
-                  About
+                  <Link href={`#services`}>Services</Link>
                 </li>
                 <li className="hover:text-[#804FEF] duration-300 transition-all">
-                  Portfolio
+                  <Link href={`#packages`}>Packages</Link>
                 </li>
+                <li className="hover:text-[#804FEF] duration-300 transition-all"></li>
                 <li className="hover:text-[#804FEF] duration-300 transition-all">
-                  Templates
-                </li>
-                <li className="hover:text-[#804FEF] duration-300 transition-all">
-                  Services
+                  <Link href={`#about`}>About</Link>
                 </li>
               </ul>
             </div>

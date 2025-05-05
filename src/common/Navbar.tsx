@@ -41,14 +41,14 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`  fixed top-0 left-0 right-0 z-50 py-5 flex items-center justify-between px-4 lg:px-50 sm:px-8 transition-all duration-300 ${
+      className={`  fixed top-0 left-0 overflow-hidden right-0 z-50 py-5 flex items-center justify-between px-4 lg:px-50 sm:px-8 transition-all duration-300 ${
         isScrolled
           ? "py-2 bg-[#241b37]/90 backdrop-blur-sm"
           : "py-5 bg-transparent"
       }`}>
       {/* Logo */}
       <h4 className="text-[16px] md:text-[28px] sm:text-[24px] text-white font-bold uppercase">
-        Mybusiness <span className="text-[#6F51FF]">Idea.</span>
+        All Mybusiness <span className="text-[#6F51FF]">Idea.</span>
       </h4>
 
       {/* Desktop Navigation */}
@@ -76,9 +76,14 @@ export default function Navbar() {
 
         <motion.button
           whileTap={{ scale: 0.95 }}
-          onClick={() => window.open("tel:+1424323-8570")}
+          onClick={() =>
+            window.open(
+              "https://calendly.com/allie-allmybusinessideas/30min",
+              "_blank"
+            )
+          }
           className="text-[14px] py-3 cursor-pointer rounded-xl px-4 text-white uppercase font-semibold bg-gradient-to-t from-[#433199] to-[#8b55ff]">
-          Call/Whatsapp: +1 (424)323-8570
+          Schedule a meetng
         </motion.button>
       </div>
 

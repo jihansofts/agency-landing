@@ -155,10 +155,11 @@ export default function Hero() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 1, delay: 0.3 }}
                   className="font-mono text-[18px] sm:text-lg md:text-[18px] lg:text-[#A3A3A3] md:text-[#A3A3A3] sm:text-white text-white mt-7">
-                  mybusinessidea.com is dedicated to transforming your digital
-                  concepts into reality. Whether you need a straightforward
-                  website for your current business or have a complex idea
-                  you&apos;ve been envisioning, we&apos;re here to assist you.
+                  Allmybusinessidea.com is dedicated to transforming your
+                  digital concepts into reality. Whether you need a
+                  straightforward website for your current business or have a
+                  complex idea you&apos;ve been envisioning, we&apos;re here to
+                  assist you.
                 </motion.p>
                 <motion.p
                   initial={{ opacity: 0, x: -100 }}

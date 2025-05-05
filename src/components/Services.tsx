@@ -24,7 +24,7 @@ const serviceData: Service[] = [
     id: 3,
     name: "Lead generation",
     icon: "/images/service3.svg",
-    dec: "we specialize in lead generation strategies that help you attract, engage, and convert high-quality prospects into valuable customers.",
+    dec: "We specialize in lead generation strategies that help you attract, engage, and convert high-quality prospects into valuable customers.",
   },
   {
     id: 4,

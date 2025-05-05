@@ -4,7 +4,7 @@ import React from "react";
 
 export default function Satisfaction() {
   return (
-    <section id="satisfaction" className="w-full">
+    <section id="about" className="w-full">
       <div className="relative w-full pt-20 min-h-screen">
         <div
           className="absolute inset-0 z-0 bg-[url('/images/satisfaction.png')] bg-cover bg-center bg-no-repeat"

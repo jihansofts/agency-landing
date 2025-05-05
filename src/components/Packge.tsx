@@ -296,17 +296,38 @@ export default function Package() {
           <div className="col-span-12 md:col-span-9">
             <div className="grid grid-cols-1 md:grid-cols-3 h-full">
               <div className="col-span-1 p-3 md:p-5 flex items-center justify-center border-b md:border-b-0 md:border-r border-[#3D3353]">
-                <button className="font-semibold cursor-pointer uppercase border border-[#6F51FF] py-2 md:py-3 px-4 md:px-8 rounded-lg text-[12px] md:text-[14px] text-[#6F51FF] hover:bg-[#6F51FF] hover:text-white duration-300 translate-all">
+                <button
+                  onClick={() =>
+                    window.open(
+                      "https://calendly.com/allie-allmybusinessideas/30min",
+                      "_blank"
+                    )
+                  }
+                  className="font-semibold cursor-pointer uppercase border border-[#6F51FF] py-2 md:py-3 px-4 md:px-8 rounded-lg text-[12px] md:text-[14px] text-[#6F51FF] hover:bg-[#6F51FF] hover:text-white duration-300 translate-all">
                   Request Package
                 </button>
               </div>
               <div className="col-span-1 flex justify-center items-center p-3 md:p-5 border-b md:border-b-0 md:border-r border-[#3D3353]">
-                <button className="font-semibold cursor-pointer uppercase py-2 md:py-3 px-4 md:px-8 rounded-lg text-[12px] md:text-[14px] text-white bg-[#6F51FF] hover:text-white hover:border hover:border-[#6F51FF] hover:bg-[#2F2741] duration-300 translate-all">
+                <button
+                  onClick={() =>
+                    window.open(
+                      "https://calendly.com/allie-allmybusinessideas/30min",
+                      "_blank"
+                    )
+                  }
+                  className="font-semibold cursor-pointer uppercase py-2 md:py-3 px-4 md:px-8 rounded-lg text-[12px] md:text-[14px] text-white bg-[#6F51FF] hover:text-white hover:border hover:border-[#6F51FF] hover:bg-[#2F2741] duration-300 translate-all">
                   Request Package
                 </button>
               </div>
               <div className="col-span-1 flex justify-center items-center p-3 md:p-5">
-                <button className="font-semibold cursor-pointer uppercase border border-[#6F51FF] py-2 md:py-3 px-4 md:px-8 rounded-lg text-[12px] md:text-[14px] text-[#6F51FF] hover:bg-[#6F51FF] hover:text-white duration-300 translate-all">
+                <button
+                  onClick={() =>
+                    window.open(
+                      "https://calendly.com/allie-allmybusinessideas/30min",
+                      "_blank"
+                    )
+                  }
+                  className="font-semibold cursor-pointer uppercase border border-[#6F51FF] py-2 md:py-3 px-4 md:px-8 rounded-lg text-[12px] md:text-[14px] text-[#6F51FF] hover:bg-[#6F51FF] hover:text-white duration-300 translate-all">
                   Request Package
                 </button>
               </div>
@@ -314,8 +335,6 @@ export default function Package() {
           </div>
         </div>
       </div>
-
-      {/* Mobile View */}
       {/* Mobile View */}
       <div className="md:hidden container mx-auto">
         {packages.map((pkg) => (
