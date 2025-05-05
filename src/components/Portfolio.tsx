@@ -123,34 +123,37 @@ export default function Portfolio() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 p-4"
+              className="fixed inset-0 z-100 flex items-center justify-center bg-black bg-opacity-90 p-4"
               onClick={() => setSelectedImage(null)}>
               <motion.div
-                initial={{ scale: 0.9 }}
-                animate={{ scale: 1 }}
-                exit={{ scale: 0.9 }}
-                className="relative max-w-4xl w-full max-h-[90vh]"
+                initial={{ scale: 0.95, y: 20 }}
+                animate={{ scale: 1, y: 0 }}
+                exit={{ scale: 0.95, y: 20 }}
+                className="relative w-full max-w-6xl mx-4 mr-14 mt-20"
                 onClick={(e) => e.stopPropagation()}>
                 <button
-                  className="absolute cursor-pointer -top-10 right-0 text-white text-2xl z-10"
-                  onClick={() => setSelectedImage(null)}>
+                  className="absolute -top-10 right-0 text-white text-2xl z-10 hover:text-[#8b55ff] transition-colors"
+                  onClick={() => setSelectedImage(null)}
+                  aria-label="Close modal">
                   <FaTimes />
                 </button>
 
-                <div className="relative w-full h-[70vh]">
+                <div className="relative w-full aspect-video bg-gray-800 rounded-t-lg overflow-hidden">
                   <Image
                     src={selectedImage.img}
                     alt={selectedImage.name}
                     fill
                     className="object-contain"
+                    priority
+                    sizes="(max-width: 768px) 95vw, 80vw"
                   />
                 </div>
 
-                <div className="bg-white p-4 rounded-b-lg">
-                  <h2 className="text-[20px] font-bold text-[#171717]">
+                <div className="bg-white p-4 sm:p-6 rounded-b-lg">
+                  <h2 className="text-xl sm:text-2xl font-bold text-[#171717]">
                     {selectedImage.name}
                   </h2>
-                  <p className="text-[#A3A3A3] text-[12px] uppercase mt-1">
+                  <p className="text-[#A3A3A3] text-sm sm:text-base uppercase mt-1 font-medium">
                     {selectedImage.brand}
                   </p>
                 </div>
