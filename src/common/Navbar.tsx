@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function Navbar() {
   const [activeLink, setActiveLink] = useState("Home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const navItems = ["Home", "Portfolio", "Services", "Packages", "About"];
 
@@ -12,6 +13,19 @@ export default function Navbar() {
     open: { opacity: 1, x: 0 },
     closed: { opacity: 0, x: "100%" },
   };
+
+  // Add scroll event listener
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id.toLowerCase());
@@ -22,13 +36,18 @@ export default function Navbar() {
       });
     }
     setActiveLink(id);
-    setIsMenuOpen(false); // Close mobile menu after click
+    setIsMenuOpen(false);
   };
 
   return (
-    <nav className="bg-transparent z-50 pt-5 flex items-center justify-between px-4 sm:px-8 relative">
+    <nav
+      className={`  fixed top-0 left-0 right-0 z-50 py-5 flex items-center justify-between px-4 lg:px-50 sm:px-8 transition-all duration-300 ${
+        isScrolled
+          ? "py-2 bg-[#241b37]/90 backdrop-blur-sm"
+          : "py-5 bg-transparent"
+      }`}>
       {/* Logo */}
-      <h4 className="text-2xl md:text-[28px] text-white font-bold uppercase">
+      <h4 className="text-[16px] md:text-[28px] sm:text-[24px] text-white font-bold uppercase">
         Mybusiness <span className="text-[#6F51FF]">Idea.</span>
       </h4>
 
@@ -65,7 +84,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Button */}
       <button
-        className="lg:hidden text-white z-100"
+        className="lg:hidden pr-10 text-white z-50"
         onClick={() => setIsMenuOpen(!isMenuOpen)}>
         {isMenuOpen ? (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -94,7 +113,7 @@ export default function Navbar() {
         animate={isMenuOpen ? "open" : "closed"}
         variants={menuVariants}
         transition={{ duration: 0.3 }}
-        className="fixed top-0 right-0 w-full h-screen bg-[#241b37] lg:hidden flex flex-col items-center justify-center space-y-8">
+        className="fixed top-0 right-0 h-screen bg-[#241b37] lg:hidden flex flex-col items-center justify-center space-y-8 z-40">
         {navItems.map((item) => (
           <Link
             key={item}
