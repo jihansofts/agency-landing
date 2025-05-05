@@ -133,7 +133,7 @@ export default function Package() {
 
   return (
     <section
-      id="package"
+      id="packages"
       className="bg-bg-secondary py-10 md:py-20 px-4 md:px-5">
       {/* Desktop View */}
       <div className="hidden md:block container mx-auto bg-[#17102F] rounded-t-2xl overflow-hidden">

@@ -13,6 +13,18 @@ export default function Navbar() {
     closed: { opacity: 0, x: "100%" },
   };
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id.toLowerCase());
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+    setActiveLink(id);
+    setIsMenuOpen(false); // Close mobile menu after click
+  };
+
   return (
     <nav className="bg-transparent z-50 pt-5 flex items-center justify-between px-4 sm:px-8 relative">
       {/* Logo */}
@@ -80,17 +92,16 @@ export default function Navbar() {
         transition={{ duration: 0.3 }}
         className="fixed top-0 right-0 w-full h-screen bg-[#241b37] lg:hidden flex flex-col items-center justify-center space-y-8">
         {navItems.map((item) => (
-          <Link
+          <button
             key={item}
-            href={`#${item.toLowerCase()}`}
+            onClick={() => scrollToSection(item)}
             className={`${
               activeLink === item
                 ? "bg-[#2F2641] text-white p-2 px-3 font-medium "
                 : "font-medium text-white text-[14px] px-1 py-1"
-            }`}
-            onClick={() => setActiveLink(item)}>
+            }`}>
             {item}
-          </Link>
+          </button>
         ))}
         <motion.button
           whileHover={{ scale: 1.05 }}
