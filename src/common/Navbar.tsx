@@ -39,12 +39,16 @@ export default function Navbar() {
             <li key={item}>
               <Link
                 href={`#${item.toLowerCase()}`}
+                scroll={false}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(item);
+                }}
                 className={`${
                   activeLink === item
                     ? "bg-[#2F2641] p-2 px-3 font-medium "
                     : "font-medium text-[14px] px-1 py-1"
-                }`}
-                onClick={() => setActiveLink(item)}>
+                }`}>
                 {item}
               </Link>
             </li>
@@ -92,16 +96,21 @@ export default function Navbar() {
         transition={{ duration: 0.3 }}
         className="fixed top-0 right-0 w-full h-screen bg-[#241b37] lg:hidden flex flex-col items-center justify-center space-y-8">
         {navItems.map((item) => (
-          <button
+          <Link
             key={item}
-            onClick={() => scrollToSection(item)}
+            href={`#${item.toLowerCase()}`}
+            scroll={false}
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection(item);
+            }}
             className={`${
               activeLink === item
                 ? "bg-[#2F2641] text-white p-2 px-3 font-medium "
-                : "font-medium text-white text-[14px] px-1 py-1"
+                : "font-medium text-[14px] text-white px-1 py-1"
             }`}>
             {item}
-          </button>
+          </Link>
         ))}
         <motion.button
           whileHover={{ scale: 1.05 }}
