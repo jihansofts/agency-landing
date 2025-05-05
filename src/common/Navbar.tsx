@@ -41,7 +41,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`  fixed top-0 left-0 overflow-hidden right-0 z-50 py-5 flex items-center justify-between px-4 lg:px-50 sm:px-8 transition-all duration-300 ${
+      className={`  fixed top-0 left-0 w-full overflow-hidden right-0 z-100 py-5 flex items-center justify-between px-4 lg:px-50 sm:px-8 transition-all duration-300 ${
         isScrolled
           ? "py-2 bg-[#241b37]/90 backdrop-blur-sm"
           : "py-5 bg-transparent"
@@ -89,7 +89,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Button */}
       <button
-        className="lg:hidden pr-10 text-white z-50"
+        className="lg:hidden  flex items-center justify-center text-white z-50"
         onClick={() => setIsMenuOpen(!isMenuOpen)}>
         {isMenuOpen ? (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">

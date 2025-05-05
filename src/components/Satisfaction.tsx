@@ -11,7 +11,7 @@ export default function Satisfaction() {
           style={{
             backgroundPosition: "center center",
           }}></div>
-        <div className="container mx-auto flex flex-col justify-between relative py-20 px-5 z-10 min-h-screen">
+        <div className="container mx-auto flex flex-col justify-between relative py-20 px-5 z-5 min-h-screen">
           <div className="text-center max-w-6xl mx-auto px-4">
             <h1 className="text-white capitalize lg:text-[56px] md:text-[40px] text-[32px]  font-medium md:leading-[70px]">
               We Deliver Innovative Solutions That Drive Business Success.

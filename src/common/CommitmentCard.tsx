@@ -12,7 +12,7 @@ export default function CommitmentCard({
 }: CommitmentCardProps) {
   return (
     <div
-      className="flex flex-col justify-between rounded-[20px]  bg-gradient-to-b from-[#2F2741] to-[#2F2741]
+      className="flex flex-col justify-between rounded-[20px]   bg-gradient-to-b from-[#2F2741] to-[#2F2741]
              px-8 py-12 h-full transition-all duration-300 border border-transparent
              hover:border-t hover:border-l hover:border-[#7A41F2]
              hover:bg-gradient-to-b hover:from-[#03001400] hover:via-[#342582] hover:to-[#7A41F2]
