@@ -35,7 +35,7 @@ export default function Footer() {
             {/* Left Info */}
             <div className="md:w-1/3 text-left">
               <h4 className="text-2xl md:text-[28px] text-white font-bold uppercase">
-                Mybusiness <span className="text-[#6F51FF]">Idea.</span>
+                AllMybusiness <span className="text-[#6F51FF]">Idea.</span>
               </h4>
               <p className="text-[#A3A3A3] text-[18px] font-mono mt-5">
                 AllMybusinessidea is a full-service business and web solution
