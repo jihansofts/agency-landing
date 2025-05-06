@@ -11,7 +11,7 @@ export default function Footer() {
           backgroundPosition: "center center",
         }}></div>
 
-      <div className="relative z-10 container mx-auto px-4">
+      <div className="relative z-5 container mx-auto px-4">
         <div className="text-center mt-10">
           <h1 className="text-white capitalize lg:text-[56px] md:text-[40px] text-[32px] font-medium md:leading-[70px]">
             Join our newsletter
