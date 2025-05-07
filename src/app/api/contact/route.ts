@@ -3,8 +3,6 @@ loadEnvConfig(process.cwd());
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-// ❌ Remove 'default' and use named export
-
 export async function POST(req: Request) {
   try {
     const { firstName, lastName, email, projectType, message } =
