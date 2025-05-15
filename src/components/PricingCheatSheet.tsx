@@ -27,7 +27,7 @@ import {
 } from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
 
-export function PricingCheatSheet() {
+export default function PricingCheatSheet() {
   // const [expanded, setExpanded] = useState<string | null>(null);
 
   return (
