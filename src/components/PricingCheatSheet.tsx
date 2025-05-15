@@ -2,7 +2,7 @@
 
 import type React from "react";
 
-import { useState } from "react";
+// import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Card,
@@ -28,7 +28,7 @@ import {
 import { Button } from "@/components/ui/button";
 
 export function PricingCheatSheet() {
-  const [expanded, setExpanded] = useState<string | null>(null);
+  // const [expanded, setExpanded] = useState<string | null>(null);
 
   return (
     <div className="bg-[#030712]">
