@@ -1,5 +1,6 @@
+"use client";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import Link from "next/link";
 
 export default function Navbar() {
@@ -8,7 +9,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const navRef = useRef<HTMLElement>(null);
 
-  const navItems = ["Home", "Portfolio", "Services", "Packages", "About"];
+  const navItems = useMemo(() => ["Home", "Portfolio", "Services", "Packages", "About"], []);
 
   // Track scroll position and active section
   useEffect(() => {
@@ -45,7 +46,7 @@ export default function Navbar() {
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [navItems]);
 
   // Update active link when menu opens
   useEffect(() => {
@@ -68,7 +69,7 @@ export default function Navbar() {
         }
       }
     }
-  }, [isMenuOpen]);
+  }, [isMenuOpen, navItems]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id.toLowerCase());
