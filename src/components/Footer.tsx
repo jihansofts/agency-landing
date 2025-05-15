@@ -76,11 +76,7 @@ export default function Footer() {
               <h4 className="text-2xl md:text-[28px] text-white font-semibold uppercase">
                 Contact
               </h4>
-              <p
-                onClick={() =>
-                  window.open(`mailto:allie@allmybusinessideas.com`, "_blank")
-                }
-                className="text-[#A3A3A3] text-[18px] font-mono mt-5 cursor-pointer hover:text-[#804FEF]">
+              <p className="text-[#A3A3A3] text-[18px] font-mono mt-5 cursor-pointer hover:text-[#804FEF]">
                 allie@allmybusinessideas.com
               </p>
               <p
@@ -88,7 +84,7 @@ export default function Footer() {
                 //   window.open(`https://wa.me/8801721495805`, "_blank")
                 // }
                 className="text-[#A3A3A3] text-[18px] font-mono mt-5 cursor-pointer hover:text-[#804FEF]">
-                WhatsApp:+1(209) 913-3561
+                WhatsApp:+1 (424)323-8570
               </p>
               {/* Social Icons */}
               <div className="flex gap-4 mt-6">
