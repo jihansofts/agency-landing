@@ -31,7 +31,7 @@ export default function PricingCheatSheet() {
   // const [expanded, setExpanded] = useState<string | null>(null);
 
   return (
-    <div className="bg-[#030712]">
+    <div id="packages" className="bg-[#030712]">
       <main className="container  mx-auto px-4 py-8">
         <div className="flex flex-col items-center justify-center mb-8">
           <div className="w-full max-w-4xl">
