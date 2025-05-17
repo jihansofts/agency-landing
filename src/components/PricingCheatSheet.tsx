@@ -74,7 +74,7 @@ export default function PricingCheatSheet() {
 
                 {/* Development Tab */}
                 <TabsContent value="development" className="space-y-4">
-                  <h2 className="text-2xl font-bold">
+                  <h2 className="text-2xl lg:pt-1 md:pt-[10px] sm:pt-[25px] pt-[25px] text-white font-bold">
                     Mobile App & Website Development
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -127,20 +127,22 @@ export default function PricingCheatSheet() {
 
                 {/* Lead Generation Tab */}
                 <TabsContent value="lead-gen" className="space-y-4">
-                  <h2 className="text-2xl font-bold">
+                  <h2 className="text-2xl lg:pt-1 md:pt-[10px] sm:pt-[25px] pt-[25px] text-white font-bold">
                     Lead Generation Services
                   </h2>
                   <Card className="mb-4 border-gray-800 bg-gray-900 text-white">
                     <CardHeader>
                       <CardTitle className="flex items-center justify-between">
-                        <span>Available Platforms</span>
+                        <span className="font-bold text-white">
+                          Available Platforms
+                        </span>
                         <TooltipProvider>
                           <Tooltip>
                             <TooltipTrigger>
                               <Info size={18} className="text-gray-400" />
                             </TooltipTrigger>
                             <TooltipContent>
-                              <p className="max-w-xs">
+                              <p className="max-w-xs text-white">
                                 Clients pay for the actual marketing campaigns
                                 separately
                               </p>
@@ -206,7 +208,9 @@ export default function PricingCheatSheet() {
 
                 {/* Consulting Tab */}
                 <TabsContent value="consulting" className="space-y-4">
-                  <h2 className="text-2xl font-bold">Business Consulting</h2>
+                  <h2 className="text-2xl lg:pt-1 md:pt-[10px] sm:pt-[25px] pt-[25px] text-white font-bold">
+                    Business Consulting
+                  </h2>
                   <Card className="border-gray-800 bg-gray-900 text-white">
                     <CardHeader>
                       <CardTitle>Consulting Services</CardTitle>
@@ -218,10 +222,10 @@ export default function PricingCheatSheet() {
                       <div className="space-y-4">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div className="border border-gray-800 rounded-lg p-4 bg-gray-800">
-                            <h3 className="text-xl font-semibold mb-2">
+                            <h3 className="text-xl text-white font-semibold mb-2">
                               Remote Consulting
                             </h3>
-                            <p className="text-3xl font-bold">
+                            <p className="text-3xl text-white font-bold">
                               $600
                               <span className="text-lg font-normal text-gray-400">
                                 /hour
@@ -233,29 +237,35 @@ export default function PricingCheatSheet() {
                                   size={18}
                                   className="mr-2 text-purple-500"
                                 />
-                                <span>Virtual meetings</span>
+                                <span className="text-white">
+                                  Virtual meetings
+                                </span>
                               </li>
                               <li className="flex items-center">
                                 <Check
                                   size={18}
                                   className="mr-2 text-purple-500"
                                 />
-                                <span>Screen sharing</span>
+                                <span className="text-white">
+                                  Screen sharing
+                                </span>
                               </li>
                               <li className="flex items-center">
                                 <Check
                                   size={18}
                                   className="mr-2 text-purple-500"
                                 />
-                                <span>Digital documentation</span>
+                                <span className="text-white">
+                                  Digital documentation
+                                </span>
                               </li>
                             </ul>
                           </div>
                           <div className="border border-gray-800 rounded-lg p-4 bg-gray-800">
-                            <h3 className="text-xl font-semibold mb-2">
+                            <h3 className="text-xl text-white font-semibold mb-2">
                               In-Person Consulting
                             </h3>
-                            <p className="text-3xl font-bold">
+                            <p className="text-3xl text-white font-bold">
                               $1,000
                               <span className="text-lg font-normal text-gray-400">
                                 /hour
@@ -267,21 +277,27 @@ export default function PricingCheatSheet() {
                                   size={18}
                                   className="mr-2 text-purple-500"
                                 />
-                                <span>On-site meetings</span>
+                                <span className="text-white">
+                                  On-site meetings
+                                </span>
                               </li>
                               <li className="flex items-center">
                                 <Check
                                   size={18}
                                   className="mr-2 text-purple-500"
                                 />
-                                <span>Hands-on assistance</span>
+                                <span className="text-white">
+                                  Hands-on assistance
+                                </span>
                               </li>
                               <li className="flex items-center">
                                 <Check
                                   size={18}
                                   className="mr-2 text-purple-500"
                                 />
-                                <span>Team workshops</span>
+                                <span className="text-white">
+                                  Team workshops
+                                </span>
                               </li>
                             </ul>
                           </div>
@@ -300,7 +316,9 @@ export default function PricingCheatSheet() {
 
                 {/* Social Media Tab */}
                 <TabsContent value="social-media" className="space-y-4">
-                  <h2 className="text-2xl font-bold">Social Media Marketing</h2>
+                  <h2 className="text-2xl lg:pt-1 md:pt-[10px] sm:pt-[25px] pt-[25px] text-white font-bold">
+                    Social Media Marketing
+                  </h2>
                   <Card className="mb-4 border-gray-800 bg-gray-900 text-white">
                     <CardHeader>
                       <CardTitle>Available Platforms</CardTitle>
