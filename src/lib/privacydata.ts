@@ -114,7 +114,7 @@ export const privacySections = [
       "If you have any questions or concerns about this Privacy Policy, please contact us at:",
     points: [
       "Email: allie@allmybusinessideas.com",
-      "Phone / WhatsApp: +1 (424) 323-8570",
+      "Phone / WhatsApp: +1 (424)358-7799",
       "Website: AllMyBusinessIdea.com",
     ],
   },
