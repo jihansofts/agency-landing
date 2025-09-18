@@ -399,7 +399,7 @@ export default function PricingCheatSheet() {
                   <div className="flex items-center">
                     <Phone className="h-6 w-6 mr-2 text-purple-500" />
                     <span className="text-lg">
-                      CALL/WHATSAPP: +1 (424)323-8570
+                      CALL/WHATSAPP: +1 (424)358-7799
                     </span>
                   </div>
                   <Button className="bg-purple-600 hover:bg-purple-700" asChild>
