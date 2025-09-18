@@ -219,6 +219,15 @@ export default function Navbar() {
                 {item}
               </Link>
             ))}
+            <Link
+              className={`${
+                activeLink === "privacy-policy"
+                  ? "bg-[#2F2641] text-white p-3 px-6 font-medium rounded-lg"
+                  : "font-medium text-white px-1 py-1"
+              }`}
+              href="/privacy-policy">
+              Privacy Policy
+            </Link>
 
             <motion.button
               whileHover={{ scale: 1.05 }}
