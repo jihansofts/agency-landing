@@ -9,7 +9,10 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const navRef = useRef<HTMLElement>(null);
 
-  const navItems = useMemo(() => ["Home", "Portfolio", "Services", "Packages", "About"], []);
+  const navItems = useMemo(
+    () => ["Home", "Portfolio", "Services", "Packages", "About"],
+    []
+  );
 
   // Track scroll position and active section
   useEffect(() => {
@@ -138,6 +141,17 @@ export default function Navbar() {
               </Link>
             </li>
           ))}
+          <li className="font-medium text-[14px] px-1 py-1">
+            <Link
+              className={`${
+                activeLink === "privacy-policy"
+                  ? "bg-[#2F2641] p-2 px-3 font-medium "
+                  : "font-medium text-[14px] px-1 py-1"
+              }`}
+              href="/privacy-policy">
+              Privacy Policy
+            </Link>
+          </li>
         </ul>
 
         <motion.button
