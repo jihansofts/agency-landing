@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import PrivacyContent from "@/components/Privacypolicy/PrivacyContent";
 import PrivacyHero from "@/components/Privacypolicy/PrivacyHero";
 
@@ -6,6 +7,7 @@ export default function Page() {
     <main>
       <PrivacyHero />
       <PrivacyContent />
+      <Footer />
     </main>
   );
 }
